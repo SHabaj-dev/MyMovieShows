@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ui.fragments.home.HomeFragment">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimation"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:scaleType="centerInside"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/anim_movies" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/large_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/inter_semibold"
+                android:text="@string/now_playing"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_size"
+                android:textStyle="bold" />
+
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="@dimen/small_margin"
+                android:paddingHorizontal="40dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/large_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/inter_semibold"
+                android:text="@string/popular_movies"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_size"
+                android:textStyle="bold" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerPopularMovies"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="@dimen/small_margin"
+                android:paddingHorizontal="40dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/large_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:fontFamily="@font/inter_semibold"
+                android:text="@string/top_rated"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_size"
+                android:textStyle="bold" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTopRated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/large_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="3"
+                tools:listitem="@layout/rv_item_movies" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>
