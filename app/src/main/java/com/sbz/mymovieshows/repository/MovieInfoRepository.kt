@@ -8,4 +8,7 @@ class MovieInfoRepository {
     suspend fun getMovieInfo(movieId: Int) =
         RetrofitInstance.api.getMovieInfo(movieId)
 
+    suspend fun getCast(movieId: Int) =
+        RetrofitInstance.api.getCast(movieId)
+
 }

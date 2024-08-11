@@ -68,9 +68,9 @@ class HomeFragment : Fragment() {
         val viewPagerAdapter = LatestMoviesViewPagerAdapter(binding.viewPager)
         val popularMoviesAdapter = LatestMoviesViewPagerAdapter(binding.viewPagerPopularMovies)
 
-        binding.lottieAnimation.setOnClickListener {
+        /*binding.lottieAnimation.setOnClickListener {
             startActivity(Intent(requireActivity(), MovieInfoActivity::class.java))
-        }
+        }*/
 
         homeViewModel.nowPlayingMovies.observe(viewLifecycleOwner, Observer { response ->
             when (response) {
@@ -235,7 +235,7 @@ class HomeFragment : Fragment() {
 
         Log.d("SHABAJ", "shouldPaginate = $shouldPaginate")
 
-        if (!shouldPaginate) {
+        if (shouldPaginate) {
             homeViewModel.getTopRatedMovies()
             isScrolling = false
         }

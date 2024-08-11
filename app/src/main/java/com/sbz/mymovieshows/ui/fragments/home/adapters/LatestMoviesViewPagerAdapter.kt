@@ -1,5 +1,6 @@
 package com.sbz.mymovieshows.ui.fragments.home.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -7,8 +8,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
+import com.sbz.mymovieshows.R
 import com.sbz.mymovieshows.databinding.VpItemLatestMoviesBinding
 import com.sbz.mymovieshows.models.Result
+import com.sbz.mymovieshows.ui.activitys.movieInfo.MovieInfoActivity
 import com.sbz.mymovieshows.utils.Constants.IMAGE_BASE_URL
 
 class LatestMoviesViewPagerAdapter(private val viewPager2: ViewPager2) :
@@ -54,6 +57,17 @@ class LatestMoviesViewPagerAdapter(private val viewPager2: ViewPager2) :
         if (position == differ.currentList.size - 2) {
             viewPager2.post(runnable)
         }
+
+
+        holder.binding.root.setOnClickListener {
+
+            val intent = Intent(holder.binding.root.context, MovieInfoActivity::class.java)
+            intent.putExtra(
+                holder.binding.root.context.getString(R.string.movie_id),
+                currentItem.id
+            )
+            holder.binding.root.context.startActivity(intent)
+        }
     }
 
     private val runnable = Runnable {
@@ -61,4 +75,6 @@ class LatestMoviesViewPagerAdapter(private val viewPager2: ViewPager2) :
         currentList.addAll(currentList)
         differ.submitList(currentList)
     }
+
+
 }

@@ -15,4 +15,16 @@
         <item name="android:navigationBarColor">@color/black</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <style name="Widget.MaterialComponents.ShapeableImageView.RoundedCorner15Percent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">15%</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.ShapeableImageView.RoundedCorner50Percent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

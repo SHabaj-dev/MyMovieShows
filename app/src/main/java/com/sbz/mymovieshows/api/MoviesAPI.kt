@@ -1,5 +1,6 @@
 package com.sbz.mymovieshows.api
 
+import com.sbz.mymovieshows.models.CastResponseModel
 import com.sbz.mymovieshows.models.MovieInfoResponse
 import com.sbz.mymovieshows.models.MovieResponse
 import com.sbz.mymovieshows.utils.Constants.API_KEY
@@ -36,6 +37,13 @@ interface MoviesAPI {
         @Path("movie_id") movieId: Int,
         @Query("api_key") apiKey: String = API_KEY
     ): Response<MovieInfoResponse>
+
+
+    @GET("movie/{movie_id}/credits")
+    suspend fun getCast(
+        @Path("movie_id") moveId: Int,
+        @Query("api_key") apiKey: String = API_KEY
+    ): Response<CastResponseModel>
 
 
 }
